@@ -18,3 +18,16 @@ body {
   width: 180px;
   /*border: 1px solid darkgreen;*/
 }
+
+@media screen and (min-width: 700px){
+  .wrapper {
+    flex-direction:row;
+  }
+  #box,#scatter1,#scatter2 {
+    height: 280px;
+    width: 560px;
+  }
+  #scatter1,#scatter2 {
+    width: 340px;
+  }
+}
