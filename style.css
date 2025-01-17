@@ -23,6 +23,16 @@ body {
   border: 1px solid darkgreen;
 }
 
+#tooltip1,#tooltip2,#tooltip3,#tooltip4,#tooltip5,#tooltip6 {
+  position: absolute;
+  padding: 5px;
+  height: auto;
+  border: 2px solid #333;
+  border-radius: 5px;
+  background-color: #ede5d8;
+  visibility: hidden;
+}
+
 @media (min-width: 700px) and (max-aspect-ratio:1) {
   #box,#scatter1,#scatter2 {
     width: 560px;
