@@ -56,17 +56,17 @@ d3.json(irisUrl).then(
       data[i]["rand3"]=rndDict["rand3"][i];
       data[i]["rand4"]=rndDict["rand4"][i];
       }
-let mouseover1 = (d,item)=>{toolTip1.style("visibility","visible").html("Sepal Length (cm): "+item.sepal_length).style("left",event.pageX-30+"px").style("top",event.pageY-28+"px").style("font",`${Math.min(w,h)/350*12}px arial`);
+let mouseover1 = (d,item)=>{toolTip1.style("visibility","visible").html("Sepal Length (cm): "+item.sepal_length+" , Species: "+ item.variety).style("left",event.pageX-30+"px").style("top",event.pageY-28+"px").style("font",`${Math.min(w,h)/350*8}px arial`);
 }
-let mouseover2 = (d,item)=>{toolTip2.style("visibility","visible").html("Sepal Width (cm): "+item.sepal_width).style("left",event.pageX-30+"px").style("top",event.pageY-28+"px").style( "font",`${Math.min(w,h)/350*12}px arial`);
+let mouseover2 = (d,item)=>{toolTip2.style("visibility","visible").html("Sepal Width (cm): "+item.sepal_width+" , Species: "+ item.variety).style("left",event.pageX-30+"px").style("top",event.pageY-28+"px").style( "font",`${Math.min(w,h)/350*8}px arial`);
   }
-let mouseover3 = (d,item)=>{toolTip3.style("visibility","visible").html("Petal Length (cm): "+item.petal_length).style("left",event.pageX-30+"px").style( "top",event.pageY-28+"px").style( "font",`${Math.min(w,h)/350*12}px arial`);
+let mouseover3 = (d,item)=>{toolTip3.style("visibility","visible").html("Petal Length (cm): "+item.petal_length+" , Species: "+ item.variety ).style("left",event.pageX-30+"px").style( "top",event.pageY-28+"px").style( "font",`${Math.min(w,h)/350*8}px arial`);
 }
-let mouseover4 = (d,item)=>{toolTip4.style("visibility","visible").html("Petal Width (cm): "+item.petal_width).style("left",event.pageX-30+"px").style( "top",event.pageY-28+"px").style( "font",`${Math.min(w,h)/350*12}px arial`);
+let mouseover4 = (d,item)=>{toolTip4.style("visibility","visible").html("Petal Width (cm): "+item.petal_width+" , Species: "+ item.variety).style("left",window.innerWidth-w/2-30+"px").style( "top",event.pageY-28+"px").style( "font",`${Math.min(w,h)/350*8}px arial`);
 }
-let mouseover5 = (d,item)=>{toolTip5.style("visibility","visible").html("Sepal Length (cm): "+item.sepal_length+", Sepal Width (cm): "+item.sepal_width).style("left",event.pageX-30+"px").style( "top",event.pageY-50+"px").style( "font",`${Math.min(w,h)/350*12}px arial`);
+let mouseover5 = (d,item)=>{toolTip5.style("visibility","visible").html("Sepal Length (cm): "+item.sepal_length+", Sepal Width (cm): "+item.sepal_width+" , Species: "+ item.variety).style("left",event.pageX-30+"px").style( "top",event.pageY-50+"px").style( "font",`${Math.min(w,h)/350*8}px arial`);
   }
-let mouseover6 = (d,item)=>{toolTip6.style("visibility","visible").html("Petal Length (cm): "+item.petal_length+", Petal Width (cm): "+item.petal_width).style("left",window.innerWidth/2-20+"px").style("top",event.pageY-28+"px").style("font",`${Math.min(w,h)/350*12}px arial`);
+let mouseover6 = (d,item)=>{toolTip6.style("visibility","visible").html("Petal Length (cm): "+item.petal_length+", Petal Width (cm): "+item.petal_width +" , Species: "+ item.variety).style("left",window.innerWidth/2-w/2+20+"px").style("top",event.pageY-28+"px").style("font",`${Math.min(w,h)/350*8}px arial`);
    }                         
 for(let i=0;i<4;i++){
   for(let j=0;j<3;j++){
