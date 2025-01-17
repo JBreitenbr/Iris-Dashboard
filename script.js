@@ -12,9 +12,9 @@ for(let j=1;j<5;j++){
 }
 
 let varDict={};
-varDict["Virginica"]="cornflowerblue";
-varDict["Setosa"]="darksalmon";
-varDict["Versicolor"]="darkgreen";
+varDict["Virginica"]="mediumblue";
+varDict["Setosa"]="darkviolet";
+varDict["Versicolor"]="skyblue";
 let box=d3.select("#box");
 let scatter1=d3.select("#scatter1");
 let scatter2=d3.select("#scatter2");
@@ -64,9 +64,9 @@ let mouseover3 = (d,item)=>{toolTip3.style("visibility","visible").html("Petal L
 }
 let mouseover4 = (d,item)=>{toolTip4.style("visibility","visible").html("Petal Width (cm): "+item.petal_width).style("left",event.pageX-30+"px").style( "top",event.pageY-28+"px").style( "font",`${Math.min(w,h)/350*12}px arial`);
 }
-let mouseover5 = (d,item)=>{toolTip5.style("visibility","visible").html("Sepal Length (cm): "+item.sepal_length+", Sepal Width (cm): "+item.sepal_width).style("left","20px").style( "top",event.pageY-28+"px").style( "font",`${Math.min(w,h)/350*12}px arial`);
+let mouseover5 = (d,item)=>{toolTip5.style("visibility","visible").html("Sepal Length (cm): "+item.sepal_length+", Sepal Width (cm): "+item.sepal_width).style("left",event.pageX-30+"px").style( "top",event.pageY-50+"px").style( "font",`${Math.min(w,h)/350*12}px arial`);
   }
-let mouseover6 = (d,item)=>{toolTip6.style("visibility","visible").html("Petal Length (cm): "+item.petal_length+", Petal Width (cm): "+item.petal_width).style("left",w/2+"px").style("top",event.pageY-28+"px").style("font",`${Math.min(w,h)/350*12}px arial`);
+let mouseover6 = (d,item)=>{toolTip6.style("visibility","visible").html("Petal Length (cm): "+item.petal_length+", Petal Width (cm): "+item.petal_width).style("left",window.innerWidth/2-20+"px").style("top",event.pageY-28+"px").style("font",`${Math.min(w,h)/350*12}px arial`);
    }                         
 for(let i=0;i<4;i++){
   for(let j=0;j<3;j++){
@@ -79,26 +79,26 @@ box.append("text").style("font",`${Math.min(w,h)*12/350}px arial`).attr("x",xSca
 box.append("text").style("font",`${Math.min(w,h)*12/350}px arial`).attr("x",xScale1(0.3)+0.8*w/4).attr("y",h/8).text("Sepal Width");
       box.append("text").style("font",`${Math.min(w,h)*12/350}px arial`).attr("x",xScale1(0.3)+1.6*w/4).attr("y",h/8).text("Petal Length");
 box.append("text").style("font",`${Math.min(w,h)*12/350}px arial`).attr("x",xScale1(0.3)+2.4*w/4).attr("y",h/8).text("Petal Width");
-box.append("circle").style("fill",varDict["Setosa"]).attr("cx",xScale1(0.6)).attr("cy",yScale1(0)+h/9).attr("r",Math.min(w,h)/60).style("opacity",0.6);
+box.append("circle").style("fill",varDict["Setosa"]).attr("cx",xScale1(0.6)).attr("cy",yScale1(0)+h/9).attr("r",Math.min(w,h)/60).style("opacity",0.6).attr("stroke","black").style("stroke-width","1px");
 box.append("text").style("font",`${Math.min(w,h)*3/70}px arial`).attr("x",xScale1(0.9)).attr("y",yScale1(0)+h/8).text("Setosa");
-box.append("circle").style("fill",varDict["Versicolor"]).attr("cx",xScale1(0.6)+0.8*w/4).attr("cy",yScale1(0)+h/9).attr("r",Math.min(w,h)/60).style( "opacity",0.6);
+box.append("circle").style("fill",varDict["Versicolor"]).attr("cx",xScale1(0.6)+0.8*w/4).attr("cy",yScale1(0)+h/9).attr("r",Math.min(w,h)/60).style( "opacity",0.6).attr("stroke","black").style("stroke-width","1px");
 box.append("text").style("font",`${Math.min(w ,h)*3/70}px arial`).attr("x",xScale1(0.9)+0.8*w/4).attr("y",yScale1(0)+h/8).text("Versicolor");
-box.append("circle").style("fill",varDict["Virginica"]).attr("cx",xScale1(0.6)+1.7*w/4).attr("cy",yScale1(0)+h/9).attr("r",Math.min(w,h)/60).style("opacity",0.6);
+box.append("circle").style("fill",varDict["Virginica"]).attr("cx",xScale1(0.6)+1.7*w/4).attr("cy",yScale1(0)+h/9).attr("r",Math.min(w,h)/60).style("opacity",0.6).attr("stroke","black").style("stroke-width","1px");
 box.append("text").style("font",`${Math.min(w,h)*3/70}px arial`).attr("x",xScale1(0.9)+1.7*w/4).attr("y",yScale1(0)+h/8).text("Virginica");
 for(let i=0;i<4;i++){
 box.append("line").style("stroke", "grey").attr("x1", xScale1(0.4)+i*0.8*w/4).attr("y1", yScale1(disp[bij[i]][bij2[2]])).
 attr("x2",xScale1(0.4)+i*0.8*w/4).attr("y2",yScale1(disp[bij[i]][bij2[0]])); 
 box.append("line").style("stroke", "grey").attr("x1", xScale1(1.9)+i*0.8*w/4).attr("y1", yScale1(disp[bij[i]][bij2[2]])).
 attr("x2",xScale1(1.9)+i*0.8*w/4).attr("y2",yScale1(disp[bij[i]][bij2[0]]));
-} box.selectAll("circle1").data(data).enter().append("circle").attr("cx",(item)=>xScale1(item.rand1)+w/16).attr("cy",(item) => yScale1(item.sepal_length)).attr("r",Math.min(w,h)/150).attr("fill",(item)=>varDict[item.variety]).style("opacity",0.6).style("stroke","grey").style("stroke-width",1).on("mouseover",mouseover1).on("mouseout",()=>{toolTip1.style("visibility","hidden");});
-box.selectAll("circle2").data(data).enter().append("circle").attr("cx",(item)=>xScale1(item.rand2)+0.8*w/4+w/16).attr("cy",(item) => yScale1(item.sepal_width)).attr("r",Math.min(w,h)/150).attr("fill",(item)=>varDict[item.variety]).style("opacity",0.6).style("stroke","grey").style("stroke-width",1).on("mouseover",mouseover2).on("mouseout",()=>{toolTip2.style("visibility","hidden");});
-      box.selectAll("circle3").data(data).enter().append("circle").attr("cx",(item)=>xScale1(item.rand3)+1.6*w/4+w/16).attr("cy",(item) => yScale1(item.petal_length)).attr("r",Math.min(w,h)/150).attr("fill",(item)=>varDict[item.variety]).style("opacity",0.6).style("stroke","grey").style("stroke-width",1).on("mouseover",mouseover3).on( "mouseout",()=>{toolTip3.style("visibility","hidden");});
-box.selectAll("circle4").data(data).enter().append("circle").attr("cx",(item)=>xScale1(item.rand4)+2.4*w/4+w/16).attr("cy",(item) => yScale1(item.petal_width)).attr("r",Math.min(w,h)/150).attr("fill",(item)=>varDict[item.variety]).style("opacity",0.6).style("stroke","grey").style("stroke-width",1).on("mouseover",mouseover4).on( "mouseout",()=>{toolTip4.style("visibility","hidden");});
+} box.selectAll("circle1").data(data).enter().append("circle").attr("cx",(item)=>xScale1(item.rand1)+w/16).attr("cy",(item) => yScale1(item.sepal_length)).attr("r",Math.min(w,h)/150).attr("fill",(item)=>varDict[item.variety]).style("opacity",0.6).style("stroke","black").style("stroke-width",0.5).on("mouseover",mouseover1).on("mouseout",()=>{toolTip1.style("visibility","hidden");});
+box.selectAll("circle2").data(data).enter().append("circle").attr("cx",(item)=>xScale1(item.rand2)+0.8*w/4+w/16).attr("cy",(item) => yScale1(item.sepal_width)).attr("r",Math.min(w,h)/150).attr("fill",(item)=>varDict[item.variety]).style("opacity",0.6).style("stroke","black").style("stroke-width",0.5).on("mouseover",mouseover2).on("mouseout",()=>{toolTip2.style("visibility","hidden");});
+      box.selectAll("circle3").data(data).enter().append("circle").attr("cx",(item)=>xScale1(item.rand3)+1.6*w/4+w/16).attr("cy",(item) => yScale1(item.petal_length)).attr("r",Math.min(w,h)/150).attr("fill",(item)=>varDict[item.variety]).style("opacity",0.6).style("stroke","black").style("stroke-width",0.5).on("mouseover",mouseover3).on( "mouseout",()=>{toolTip3.style("visibility","hidden");});
+box.selectAll("circle4").data(data).enter().append("circle").attr("cx",(item)=>xScale1(item.rand4)+2.4*w/4+w/16).attr("cy",(item) => yScale1(item.petal_width)).attr("r",Math.min(w,h)/150).attr("fill",(item)=>varDict[item.variety]).style("opacity",0.6).style("stroke","black").style("stroke-width",0.5).on("mouseover",mouseover4).on( "mouseout",()=>{toolTip4.style("visibility","hidden");});
 
-scatter1.selectAll("circle5").data(data).enter().append("circle").attr("cx",(item)=>(xScale2(item.sepal_width))).attr("cy",(item) => yScale2(item.sepal_length)).attr("r",Math.min(w,h)/75).attr("fill",(item)=>varDict[item.variety]).style("opacity",0.6).style( "stroke","grey").style("stroke-width",1).on("mouseover",mouseover5).on( "mouseout",()=>{toolTip5.style("visibility","hidden");});
+scatter1.selectAll("circle5").data(data).enter().append("circle").attr("cx",(item)=>(xScale2(item.sepal_width))).attr("cy",(item) => yScale2(item.sepal_length)).attr("r",Math.min(w,h)/75).attr("fill",(item)=>varDict[item.variety]).style("opacity",0.6).style( "stroke","black").style("stroke-width",0.5).on("mouseover",mouseover5).on( "mouseout",()=>{toolTip5.style("visibility","hidden");});
 scatter1.append("text").style("font",`${Math.min(w,h)*12/350}px arial`).attr("x",xScale2(0.3)+w/8).attr("y",yScale2(0)+h/8).text("Sepal Width (cm)");
 scatter1.append("text").style("font",`${Math.min(w,h)*12/350}px arial`).attr( "x",xScale2(0)-w/20).attr("y",yScale2(10)).text("Sepal Length (cm)");
-scatter2.selectAll("circle6").data(data).enter().append("circle").attr( "cx",(item)=>(xScale3(item.petal_width))).attr("cy",(item) => yScale3(item.petal_length)).attr("r",Math.min(w,h)/75).attr("fill",(item)=>varDict[item.variety]).style("opacity",0.6).style("stroke","grey").style("stroke-width",1).on("mouseover",mouseover6).on( "mouseout",()=>{toolTip6.style("visibility","hidden");});
+scatter2.selectAll("circle6").data(data).enter().append("circle").attr( "cx",(item)=>(xScale3(item.petal_width))).attr("cy",(item) => yScale3(item.petal_length)).attr("r",Math.min(w,h)/75).attr("fill",(item)=>varDict[item.variety]).style("opacity",0.6).style("stroke","black").style("stroke-width",0.5).on("mouseover",mouseover6).on( "mouseout",()=>{toolTip6.style("visibility","hidden");});
 scatter2.append("text").style("font",`${Math.min(w,h)*12/350}px arial`).attr("x",xScale3(0)+w/7).attr("y",yScale3(0)+h/8).text("Petal Width (cm)");
 scatter2.append("text").style("font",`${Math.min(w ,h)*12/350}px arial`).attr("x",xScale3(0)-w/20).attr("y",yScale2(10)).text("Petal Length (cm)");
 		}});

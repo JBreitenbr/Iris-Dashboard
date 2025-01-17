@@ -15,12 +15,10 @@ body {
   height: 280px;
   width: 360px;
   background-color: #f7f7f7;
-  border: 1px solid darkred;
 }
 
 #scatter1,#scatter2 {
   width: 180px;
-  border: 1px solid darkgreen;
 }
 
 #tooltip1,#tooltip2,#tooltip3,#tooltip4,#tooltip5,#tooltip6 {
@@ -29,7 +27,7 @@ body {
   height: auto;
   border: 2px solid #333;
   border-radius: 5px;
-  background-color: #ede5d8;
+  background-color: oldlace;
   visibility: hidden;
 }
 
@@ -40,7 +38,6 @@ body {
   }
   #scatter1,#scatter2 {
     width: 280px;
-    border: 1px solid navy;
   }
 }
 @media (min-width: 700px) and (min-aspect-ratio:1.01) {
@@ -50,7 +47,6 @@ body {
   }
   #scatter1,#scatter2 {
     width: 345px;
-    border: 1px solid lime;
   }
 }
 
@@ -61,7 +57,6 @@ body {
   }
   #scatter1,#scatter2 {
     width: 430px;
-    border: 1px solid orange;
   }
 }
 
@@ -72,6 +67,5 @@ body {
   }
   #scatter1,#scatter2 {
     width: 550px;
-    border: 1px solid purple;
   }
 }
